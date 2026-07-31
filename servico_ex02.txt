@@ -1,6 +1,6 @@
-CREATE DATABASE servico_ex03;
+CREATE DATABASE servico_ex02;
 
-USE servico_ex03;
+USE servico_ex02;
 
 CREATE TABLE cor (
 id INT,
