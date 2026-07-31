@@ -1,0 +1,12 @@
+CREATE DATABASE escola_ex;
+
+USE escola_ex
+
+CREATE TABLE aluno (
+	id INT,
+	nome VARCHAR (50),
+	email VARCHAR (50),
+	data_nascimento DATE,
+	
+	PRIMARY KEY (id)
+);
