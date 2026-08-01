@@ -1,0 +1,36 @@
+CREATE DATABASE cliente_pedido_ex;
+
+USE cliente_pedido_ex;
+
+CREATE TABLE cliente (
+id INT,
+nome VARCHAR(50),
+cpf CHAR(11),
+
+PRIMARY KEY (id)
+
+);
+
+CREATE TABLE pedido (
+id INT,
+titulo VARCHAR(150),
+item VARCHAR(150),
+descricao TEXT,
+
+id_cliente INT,
+
+PRIMARY KEY (id),
+
+FOREIGN KEY (id_cliente) REFERENCES cliente (id)
+
+);
+
+INSERT INTO cliente (id, nome, cpf) VALUES
+(1, 'Júlia', 1000),
+(2, 'Leandro', 2000),
+(3, 'Maria', 3000);
+
+INSERT INTO pedido (id, titulo, item, descricao, id_cliente) VALUES
+(1, NULL, 'Lanterna', NULL, 2),
+(2, NULL, 'Caixa', NULL, 3),
+(3, NULL, 'Caneta', NULL, 1);
