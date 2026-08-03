@@ -1,0 +1,19 @@
+UPDATE cliente 
+SET nome = 'Julia' WHERE id = 1,
+
+UPDATE cliente
+SET cpf = 5000 WHERE id = 3,
+
+UPDATE pedido
+SET descricao = 'Caneta bic super duravel' WHERE id = 3,
+
+UPDATE pedido
+SET descricao = 'Caixa de papelao metalica para embalagem de presentes' WHERE id = 2,
+
+DELETE FROM pedido 
+WHERE id = 1
+
+-> Leva ao Erro:
+
+DELETE FROM cliente
+WHERE id = 1

@@ -1,0 +1,15 @@
+
+
+UPDATE proprietario 
+SET telefone = 47123456789 WHERE id = 1,
+
+UPDATE cor
+SET nome = 'Chumbo' WHERE id = 2,
+
+DELETE FROM veiculos
+WHERE quilometragem > 200000 AND ano_fabricacao < 2010,
+
+DELETE FROM marca
+WHERE id = 1
+
+
