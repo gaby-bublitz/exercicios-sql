@@ -1,0 +1,76 @@
+CREATE DATABASE concessionaria_ex01;
+
+USE concessionaria_ex01;
+
+CREATE TABLE cor (
+id INT PRIMARY KEY AUTO_INCREMENT,
+
+nome_cor VARCHAR(50) NOT NULL UNIQUE
+
+);
+
+CREATE TABLE marca (
+id INT PRIMARY KEY AUTO_INCREMENT,
+
+nome_marca VARCHAR(50) NOT NULL UNIQUE
+
+);
+
+CREATE TABLE modelo (
+id INT PRIMARY KEY AUTO_INCREMENT,
+
+nome_modelo VARCHAR(50) NOT NULL UNIQUE,
+
+id_marca INT,
+FOREIGN KEY (id_marca) REFERENCES marca(id) 
+
+);
+
+CREATE TABLE proprietario (
+id INT PRIMARY KEY AUTO_INCREMENT,
+
+nome VARCHAR(50) NOT NULL,
+telefone VARCHAR(11),
+email VARCHAR (50) UNIQUE
+
+);
+
+CREATE TABLE combustivel (
+id INT PRIMARY KEY AUTO_INCREMENT,
+
+nome_combustivel VARCHAR(50) NOT NULL
+
+);
+
+CREATE TABLE veiculo (
+id INT PRIMARY KEY AUTO_INCREMENT,
+
+ano_fabricacao INT NOT NULL,
+ano_modelo INT NOT NULL,
+quilometragem INT NOT NULL,
+portas INT,
+
+id_proprietario INT NOT NULL,
+id_cor INT,
+id_modelo INT NOT NULL,
+
+FOREIGN KEY (id_proprietario)
+REFERENCES proprietario(id),
+
+FOREIGN KEY (id_cor)
+REFERENCES cor(id),
+
+FOREIGN KEY (id_modelo)
+REFERENCES modelo(id)
+
+);
+
+CREATE TABLE veiculo_combustivel (
+id_veiculo INT NOT NULL,
+id_combustivel INT NOT NULL,
+
+PRIMARY KEY (id_veiculo, id_combustivel),
+
+FOREIGN KEY (id_veiculo) REFERENCES veiculo (id),
+FOREIGN KEY (id_combustivel) REFERENCES combustivel (id)
+);
