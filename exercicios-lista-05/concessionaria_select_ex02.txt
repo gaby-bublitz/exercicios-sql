@@ -1,0 +1,10 @@
+SELECT * FROM modelo;
+SELECT * FROM marca;
+
+SELECT * FROM proprietario WHERE email IS NULL;
+
+SELECT * FROM veiculo WHERE ano_fabricacao > '2015' ORDER BY ano_fabricacao DESC;
+
+SELECT * FROM proprietario WHERE telefone LIKE '47%';
+
+SELECT * FROM veiculo WHERE quilometragem > 100000 ORDER BY quilometragem DESC
