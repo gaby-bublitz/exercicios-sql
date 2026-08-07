@@ -1,0 +1,65 @@
+CREATE DATABASE escola_ex01;
+
+USE escola_ex01;
+
+CREATE TABLE area (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	
+	nome VARCHAR(150) NOT NULL
+);
+
+CREATE TABLE professor (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	
+	nome VARCHAR(150) NOT NULL,
+	
+	id_area INT,
+	FOREIGN KEY (id_area) REFERENCES area(id)
+);
+
+CREATE TABLE aluno (
+id INT AUTO_INCREMENT PRIMARY KEY,
+
+nome VARCHAR (150) NOT NULL,
+data_nascimento DATE,
+media DECIMAL (10,2),
+
+id_professor INT NOT NULL,
+FOREIGN KEY (id_professor) REFERENCES professor(id)
+
+);
+
+
+INSERT INTO area (id, nome) VALUES
+(1, 'Matemática'),
+(2, 'Português'),
+(3, 'História'),
+(4, 'Filosofia'),
+(5, 'Química'),
+(6, 'Física');
+
+INSERT INTO professor (id, nome, id_area) VALUES
+(1, 'Roberto', 1),
+(2, 'Lúcia', 2),
+(3, 'Michelle', 3),
+(4, 'Ricardo', 5),
+(5, 'Ângelo', 4),
+(6, 'Angélica', 6),
+(7, 'Lara', 2);
+
+INSERT INTO aluno (id, nome, data_nascimento, media, id_professor) VALUES
+(1, 'Vanessa', '1990-08-07', 7, 3),
+(2, 'Lucas', '2000-01-01', 9, 5),
+(3, 'Paola', '2010-05-10', 10, 4),
+(4, 'Nícolas', '1998-02-03', 2, 1),
+(5, 'Ariel', '2005-11-11', 4, 2);
+
+SELECT * FROM aluno;
+
+SELECT nome, media FROM aluno WHERE media >= 7 ORDER BY media DESC;
+
+SELECT nome FROM professor WHERE id_area = 2;
+
+SELECT nome, data_nascimento FROM aluno WHERE data_nascimento > '2002-01-01';
+
+SELECT * FROM aluno WHERE id_professor = 1;
