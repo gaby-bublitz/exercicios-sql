@@ -1,0 +1,11 @@
+SELECT a.nome Nome_Aluno, p.nome Nome_Professor
+FROM aluno a
+JOIN professor p
+ON a.id_professor = p.id;
+
+SELECT a.nome Nome_Aluno, p.nome Nome_Professor, area.nome Area_Professor
+FROM aluno a
+JOIN professor p
+ON a.id_professor = p.id
+JOIN area
+ON p.id_area = area.id;

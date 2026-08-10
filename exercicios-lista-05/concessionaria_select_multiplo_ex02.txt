@@ -1,0 +1,14 @@
+SELECT v.*, mo.nome_modelo Nome_Modelo, ma.nome_marca Nome_Marca
+FROM veiculo v
+JOIN modelo mo
+ON v.id_modelo = mo.id
+JOIN marca ma
+ON mo.id_marca = ma.id;
+
+SELECT v.*, mo.nome_modelo Nome_Modelo, ma.nome_marca Nome_Marca
+FROM veiculo v
+JOIN modelo mo
+ON v.id_modelo = mo.id
+JOIN marca ma
+ON mo.id_marca = ma.id
+WHERE v.ano_fabricacao != v.ano_modelo;
